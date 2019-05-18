@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: commute-checker
+  labels:
+    run: commute-checker
+spec:
+  selector:
+    run: commute-checker
+  ports:
+  - name: metrics
+    port: 2112

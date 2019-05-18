@@ -1,0 +1,19 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: commute-checker
+  namespace: default
+  labels:
+    k8s-app: commute-checker
+spec:
+  jobLabel: k8s-app
+  selector:
+    matchLabels:
+      run: commute-checker
+  namespaceSelector:
+    matchNames:
+    - default
+  endpoints:
+  - interval: 15s
+    port: metrics
